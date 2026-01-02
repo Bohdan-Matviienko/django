@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="mb-4">Quotes</h1>
+    {% for quote in quotes %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <p class="card-text" style="font-size: 1.2em">"{{ quote.quote }}"</p>
+                <small class="text-muted">- {{ quote.author.fullname }}</small>
+                <br>
+                <div class="mt-2">
+                    {% for tag in quote.tags.all %}
+                        <span class="badge badge-primary">{{ tag.name }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
